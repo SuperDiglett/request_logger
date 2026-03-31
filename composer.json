@@ -1,0 +1,21 @@
+{
+    "name": "sd/request_logger",
+    "version": "0.0.1",
+    "description": "Magento 2 module to log API request/response payloads for debugging purposes.",
+    "type": "magento2-module",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Sd\\RequestLogger\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Kevin van Hengst"
+        }
+    ],
+    "require": {}
+}
