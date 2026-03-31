@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sd_request_log" resource="default" engine="innodb">
+        <column name="id" xsi:type="int" nullable="false" comment="ID" />
+        <column name="direction" xsi:type="varchar" length="20" nullable="false" comment="direction incoming/outgoing" />
+        <column name="endpoint" xsi:type="text" nullable="false" comment="For incoming just the endpoint, for outgoing the domain + endpoint" />
+        <column name="http_method" xsi:type="varchar" length="7" nullable="false" comment="HTTP method of request" />
+        <column name="request_headers" xsi:type="text" nullable="true" comment="json string of http headers" />
+        <column name="request_body" xsi:type="mediumtext" nullable="true" comment="json string of request body" />
+        <column name="response_code" xsi:type="int" nullable="true" comment="Request response code (only outgoing)" />
+        <column name="response_body" xsi:type="mediumtext" nullable="true" comment="Request body" />
+        <column name="created_at" xsi:type="timestamp" nullable="false" default="CURRENT_TIMESTAMP" comment="Time of entry creation" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table>
+</schema>

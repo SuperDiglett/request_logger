@@ -1,0 +1,18 @@
+{
+    "sd_request_log": {
+        "column": {
+            "id": true,
+            "direction": true,
+            "endpoint": true,
+            "http_method": true,
+            "request_headers": true,
+            "request_body": true,
+            "response_code": true,
+            "response_body": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
