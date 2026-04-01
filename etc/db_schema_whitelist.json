@@ -13,6 +13,10 @@
         },
         "constraint": {
             "PRIMARY": true
+        },
+        "index": {
+            "SD_REQUEST_LOG_CREATED_AT": true,
+            "SD_REQUEST_LOG_DIRECTION": true
         }
     }
 }
