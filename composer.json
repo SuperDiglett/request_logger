@@ -17,5 +17,15 @@
             "name": "Kevin van Hengst"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "magento/magento-coding-standard": "^40.0",
+        "bitexpert/phpstan-magento": "^0.42.0",
+        "phpro/grumphp-shim": "^2.19"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp-shim": true
+        }
+    }
 }
