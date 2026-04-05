@@ -1,0 +1,6 @@
+grumphp:
+    tasks:
+        phpstan:
+            configuration: phpstan.neon
+        phpcs:
+            standard: phpcs.xml

@@ -6,4 +6,3 @@ ComponentRegistrar::register(
     'Sd_RequestLogger',
     __DIR__
 );
-
