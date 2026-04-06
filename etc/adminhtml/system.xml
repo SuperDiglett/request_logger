@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="sd_mage" translate="label" sortOrder="200">
+            <label>SD Mage</label>
+        </tab>
+
+        <section id="sd_mage_request_logger" translate="label" sortOrder="130" showInDefault="1" showInStore="1" showInWebsite="0">
+            <label>Request Logger</label>
+            <tab>sd_mage</tab>
+            <resource>Sd_RequestLogger::config</resource>
+
+            <group id="sd_mage_request_logger_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+                <label>Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="endpoint_whitelist" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Endpoint Whitelist</label>
+                    <comment>URL patterns to log, one per line. Supports wildcards (e.g. /V1/orders, /V1/customers/*).</comment>
+                    <backend_model>Sd\RequestLogger\Model\Config\Backend\NewlineSeparatedList</backend_model>
+                </field>
+                <field id="headers_to_sanitize" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Headers to Sanitize</label>
+                    <comment>Header names whose values will be redacted, one per line (e.g. Authorization, X-Api-Key).</comment>
+                    <backend_model>Sd\RequestLogger\Model\Config\Backend\NewlineSeparatedList</backend_model>
+                </field>
+                <field id="body_fields_to_sanitize" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Body Fields to Sanitize</label>
+                    <comment>Request body field paths whose values will be redacted, one per line (e.g. password, credit_card).</comment>
+                    <backend_model>Sd\RequestLogger\Model\Config\Backend\NewlineSeparatedList</backend_model>
+                </field>
+                <field id="retention_days" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Retention Period (days)</label>
+                    <comment>Number of days to retain log entries. Logs older than this will be deleted.</comment>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

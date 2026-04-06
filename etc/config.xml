@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sd_mage_request_logger>
+            <sd_mage_request_logger_settings>
+                <enabled>0</enabled>
+                <retention_days>30</retention_days>
+            </sd_mage_request_logger_settings>
+        </sd_mage_request_logger>
+    </default>
+</config>
