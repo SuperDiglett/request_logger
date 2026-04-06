@@ -3,9 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magento_Config::config">
-                    <resource id="Sd_RequestLogger::config" title="Request Logger Settings" />
-                </resource>
+                <resource id="Sd_RequestLogger::config" title="Request Logger Settings" />
             </resource>
         </resources>
     </acl>
