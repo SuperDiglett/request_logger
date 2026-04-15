@@ -6,7 +6,8 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Store\Model\ScopeInterface;
-// use Sd\RequestLogger\Service\RequestLoggerInterface;
+use Psr\Log\LoggerInterface;
+use Sd\RequestLogger\Service\RequestLoggerInterface;
 
 class LogRequest implements ObserverInterface
 {
@@ -15,7 +16,8 @@ class LogRequest implements ObserverInterface
 
     public function __construct(
         private readonly ScopeConfigInterface $scopeConfig,
-        // private readonly RequestLoggerInterface $requestLogger,
+        private readonly RequestLoggerInterface $requestLogger,
+        private readonly LoggerInterface $logger,
     ) {}
 
     public function execute(Observer $observer): void
@@ -30,7 +32,11 @@ class LogRequest implements ObserverInterface
             return;
         }
 
-        // $this->requestLogger->log($request);
+        try {
+            $this->requestLogger->log($request);
+        } catch (\Throwable $e) {
+            $this->logger->error('RequestLogger: failed to log request: ' . $e->getMessage());
+        }
     }
 
     private function isPathWhitelisted(string $path): bool
